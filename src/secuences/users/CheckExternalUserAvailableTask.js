@@ -1,5 +1,4 @@
 const { UserModel } = require("../../data/models");
-const { Responses } = require("../../data/types");
 const BaseTask = require("../src/BaseTask");
 
 module.exports = class CheckExternalUserAvailableTask extends BaseTask {

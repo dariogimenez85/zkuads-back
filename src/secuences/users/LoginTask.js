@@ -1,12 +1,9 @@
 const { UserModel } = require("../../data/models");
-const { Responses, UserStatus } = require("../../data/types");
 const BaseTask = require("../src/BaseTask");
 
 module.exports = class LoginTask extends BaseTask {
     execute(params) {
         this.params = params;
-
-        console.log(this.params.externalId);
 
         return new Promise((complete, cancel) => {
 

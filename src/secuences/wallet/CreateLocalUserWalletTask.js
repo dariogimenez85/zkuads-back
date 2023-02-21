@@ -1,4 +1,4 @@
-const { UserModel, UserWalletModel } = require("../../data/models");
+const { UserWalletModel } = require("../../data/models");
 const BaseTask = require("../src/BaseTask");
 
 module.exports = class CreateLocalUserWalletTask extends BaseTask {

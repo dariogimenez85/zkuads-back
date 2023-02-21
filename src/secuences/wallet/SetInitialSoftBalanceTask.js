@@ -1,5 +1,5 @@
-const { UserModel, WalletTransactionsModel, UserWalletModel } = require("../../data/models");
-const { Responses, UserStatus, TransactionType, CurrencyType, TransactionStatus } = require("../../data/types");
+const { WalletTransactionsModel, UserWalletModel } = require("../../data/models");
+const { TransactionType, CurrencyType, TransactionStatus } = require("../../data/types");
 const BaseTask = require("../src/BaseTask");
 
 module.exports = class SetInitialSoftBalanceTask extends BaseTask {

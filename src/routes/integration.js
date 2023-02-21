@@ -1,5 +1,6 @@
 const { TransactionType, CurrencyType } = require("../data/types");
-const { createTransactionTask } = require("../secuences/wallet");
+const { getUserDataSecuence } = require("../secuences/users");
+const { createTransactionTask, getBalanceSecuence } = require("../secuences/wallet");
 
 const router = require("express").Router();
 
@@ -27,8 +28,13 @@ router.post("/soft/credit", (req, res) => {
     });
 });
 
-router.get("/soft/balance", (req, res) => {
-
+router.get("/soft/balance/:userId", (req, res) => {
+    getBalanceSecuence.execute({
+        request: req,
+        resolve: res,
+        userId: req.params.userId,
+        currencyType: CurrencyType.Soft
+    });
 });
 
 //hard currency wallet
@@ -55,13 +61,22 @@ router.post("/hard/credit", (req, res) => {
     });
 });
 
-router.get("/hard/balance", (req, res) => {
-
+router.get("/hard/balance/:userId", (req, res) => {
+    getBalanceSecuence.execute({
+        request: req,
+        resolve: res,
+        userId: req.params.userId,
+        currencyType: CurrencyType.Hard
+    });
 });
 
 module.exports = router;
 
 //user data
 router.get("/user/:userId", (req, res) => {
-
+    getUserDataSecuence.execute({
+        request: req,
+        resolve: res,
+        userId: req.params.userId
+    });
 });
